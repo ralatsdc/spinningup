@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Install OpenAI Spinning Up on Ubuntu 22.04
+# Install OpenAI Spinning Up on an AWS EC2 Ubuntu 22.04
+# instance. Include NoMachine for remote access.
 
 # Install dependencies
 # https://spinningup.openai.com/en/latest/user/installation.html#installing-openmpi
@@ -50,7 +51,7 @@ git checkout rl/pin-opencv-python
 pip install -e .
 conda install -c conda-forge gcc=13.2.0 -y
 
-# Check Your Install
+# Check install
 echo <<EOF
 To see if you’ve successfully installed Spinning Up, try running PPO
 in the LunarLander-v2 environment with
