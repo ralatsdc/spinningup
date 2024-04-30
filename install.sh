@@ -32,8 +32,6 @@ sudo cat /usr/NX/etc/node.cfg.orig | sed "s%$OLD%$NEW%" > /usr/NX/etc/node.cfg
 # Install Miniconda
 # https://docs.anaconda.com/free/anaconda/install/silent-mode/
 # https://spinningup.openai.com/en/latest/user/installation.html#installing-python
-# https://stackoverflow.com/questions/72540359/glibcxx-3-4-30-not-found-for-librosa-in-conda-virtual-environment-after-tryin
-# https://anaconda.org/conda-forge/gcc
 curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o ~/miniconda.sh
 bash ~/miniconda.sh -b -p $HOME/miniconda
 eval "$(/$HOME/miniconda/bin/conda shell.bash hook)"
@@ -44,6 +42,8 @@ conda activate spinningup
 
 # Setup Spinning up
 # https://spinningup.openai.com/en/latest/user/installation.html#installing-spinning-up
+# https://stackoverflow.com/questions/72540359/glibcxx-3-4-30-not-found-for-librosa-in-conda-virtual-environment-after-tryin
+# https://anaconda.org/conda-forge/gcc
 git clone https://github.com/ralatsdc/spinningup.git
 cd spinningup
 git checkout rl/pin-opencv-python
