@@ -39,9 +39,8 @@ bash ~/miniconda.sh -b -p $HOME/miniconda
 eval "$(/$HOME/miniconda/bin/conda shell.bash hook)"
 conda init
 conda config --set auto_activate_base false
-conda create -n spinningup python=3.6
+conda create -n spinningup python=3.6 -y
 conda activate spinningup
-conda install -c conda-forge gcc=13.2.0
 
 # Setup Spinning up
 # https://spinningup.openai.com/en/latest/user/installation.html#installing-spinning-up
@@ -49,3 +48,25 @@ git clone https://github.com/ralatsdc/spinningup.git
 cd spinningup
 git checkout rl/pin-opencv-python
 pip install -e .
+conda install -c conda-forge gcc=13.2.0 -y
+
+# Check Your Install
+echo <<EOF
+To see if you’ve successfully installed Spinning Up, try running PPO
+in the LunarLander-v2 environment with
+
+$ python -m spinup.run ppo --hid "[32,32]" --env LunarLander-v2 --exp_name installtest --gamma 0.999
+
+This might run for around 10 minutes, and you can leave it going in
+the background while you continue reading through documentation. This
+won’t train the agent to completion, but will run it for long enough
+that you can see some learning progress when the results come in.
+
+After it finishes training, watch a video of the trained policy with
+
+$ python -m spinup.run test_policy data/installtest/installtest_s0
+
+And plot the results with
+
+python -m spinup.run plot data/installtest/installtest_s0
+EOF
