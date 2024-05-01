@@ -69,5 +69,5 @@ $ python -m spinup.run test_policy data/installtest/installtest_s0
 
 And plot the results with
 
-python -m spinup.run plot data/installtest/installtest_s0
+$ python -m spinup.run plot data/installtest/installtest_s0
 EOF
